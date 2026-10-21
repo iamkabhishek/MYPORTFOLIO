@@ -1,15 +1,19 @@
 import { ArrowDownRight, ArrowUpRight, Braces, Github, Linkedin, Mail, ExternalLink, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import ExperienceSection from "@/components/experience-section";
+import ExperienceTooling from "@/components/experience-tooling";
+import SkillTerminal from "@/components/skill-terminal";
 
 const skillGroups = [
-  { name: "Languages", skills: ["JavaScript", "TypeScript", "SQL"] },
-  { name: "Backend engineering", skills: ["Node.js", "Express.js", "REST APIs"] },
-  { name: "Frontend", skills: ["React.js", "Next.js", "Tailwind CSS"] },
-  { name: "Data & ORMs", skills: ["MongoDB", "PostgreSQL", "Redis", "Mongoose", "Drizzle ORM"] },
-  { name: "Cloud & infrastructure", skills: ["AWS", "AWS Lambda", "AWS Cognito", "AWS SES", "AWS SNS", "AWS EventBridge", "AWS Secrets Manager"] },
-  { name: "Tools & delivery", skills: ["Docker Compose", "Git / GitHub", "GitHub Actions", "Postman"] },
+  { name: "Languages", note: "The foundations I build with", skills: ["JavaScript", "TypeScript", "SQL"] },
+  { name: "Backend engineering", note: "Services, APIs & application logic", skills: ["Node.js", "Express.js", "REST APIs"] },
+  { name: "Frontend", note: "Interfaces that bring products to life", skills: ["React.js", "Next.js", "Tailwind CSS"] },
+  { name: "AI & applied AI", note: "Language models, speech APIs & AI development tools", skills: ["LLM", "SLM", "RAG", "Google Gemini", "Google Cloud Speech APIs", "Voice-based AI workflows", "Claude Code", "OpenAI Codex"] },
+  { name: "Data & ORMs", note: "Storage, querying & data access", skills: ["MongoDB", "PostgreSQL", "Redis", "Mongoose", "Drizzle ORM"] },
+  { name: "Cloud & infrastructure", note: "Deployments, identity & event workflows", skills: ["AWS", "AWS Lambda", "AWS Cognito", "AWS SES", "AWS SNS", "AWS EventBridge", "AWS Secrets Manager"] },
+  { name: "Tools & delivery", note: "A dependable development workflow", skills: ["Docker Compose", "Git / GitHub", "GitHub Actions", "Postman"] },
 ];
-const skillLogos: Record<string, { slug?: string; src?: string; color: string; mark: string }> = {
+const skillLogos: Record<string, { slug?: string; src?: string; color: string; mark: string; symbol?: "llm" | "slm" | "rag" | "codex" }> = {
   "JavaScript": { slug: "javascript", color: "F7DF1E", mark: "JS" },
   "TypeScript": { slug: "typescript", color: "3178C6", mark: "TS" },
   "SQL": { color: "526B8C", mark: "SQL" },
@@ -19,6 +23,14 @@ const skillLogos: Record<string, { slug?: string; src?: string; color: string; m
   "React.js": { slug: "react", color: "61DAFB", mark: "R" },
   "Next.js": { slug: "nextdotjs", color: "000000", mark: "N" },
   "Tailwind CSS": { slug: "tailwindcss", color: "06B6D4", mark: "TW" },
+  "Google Gemini": { slug: "googlegemini", color: "8E75B2", mark: "AI" },
+  "Google Cloud Speech APIs": { slug: "googlecloud", color: "4285F4", mark: "GCP" },
+  "Voice-based AI workflows": { color: "C96B59", mark: "VOICE" },
+  "LLM": { color: "668568", mark: "", symbol: "llm" },
+  "SLM": { color: "78927b", mark: "", symbol: "slm" },
+  "RAG": { color: "C96B59", mark: "", symbol: "rag" },
+  "Claude Code": { slug: "anthropic", color: "D97757", mark: "CC" },
+  "OpenAI Codex": { color: "668568", mark: "", symbol: "codex" },
   "MongoDB": { slug: "mongodb", color: "47A248", mark: "M" },
   "PostgreSQL": { slug: "postgresql", color: "4169E1", mark: "PG" },
   "Redis": { slug: "redis", color: "FF4438", mark: "R" },
@@ -123,8 +135,8 @@ export default function Home() {
       </header>
 
       <section id="home" className="hero section-grid">
+        <p className="hero-sanskrit" lang="sa"><span className="hero-sanskrit-greeting">नमस्कारः</span><span>अहं अभिषेकः अस्मि</span></p>
         <div className="hero-copy">
-          <p className="hero-sanskrit" lang="sa"><span className="hero-sanskrit-greeting">नमस्कारः</span><span>अहं अभिषेकः अस्मि</span></p>
           <p className="eyebrow"><span className="eyebrow-line"/> BACKEND DEVELOPER · MERN STACK ENGINEER</p>
           <h1>Building the<br/><span className="serif-italic">logic</span> behind<br/>the experience<span className="coral-dot">.</span></h1>
           <p className="hero-intro">I’m Abhishek Kumar ” a backend developer building APIs, cloud-native applications, and dependable product experiences with Node.js, TypeScript, and the MERN stack.</p>
@@ -152,7 +164,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="experience-section section-grid section-pad">
+      <ExperienceSection>
         <div className="section-label"><span>experience.sh</span><span className="label-rule"/></div>
         <div className="section-main"><p className="experience-command"><span>&gt;</span> experience --list</p><h2 className="experience-title">Work Experience</h2><p className="experience-listing">List of work experience:</p>
           <article className="experience-card"><div className="experience-head"><div><h3>FitnEarn</h3><p className="experience-date">MAR 2025 <span>—</span> JUL 2026 <span className="work-mode">REMOTE</span></p><p className="experience-company">Backend Developer <span>(MERN Stack) · Fitness technology</span></p></div><span className="experience-mark" aria-hidden="true"><Braces size={23}/></span></div>
@@ -170,10 +182,10 @@ export default function Home() {
               </details>)}
             </div>
             <ul className="experience-list">{experience.map((item) => <li key={item}>{item}</li>)}</ul>
-            <div className="experience-stack"><span>CORE TOOLING</span>{["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Redis", "AWS", "GitHub Actions"].map((tool) => <span className="stack-pill" key={tool}>{tool}</span>)}</div>
+            <ExperienceTooling />
           </article>
         </div>
-      </section>
+      </ExperienceSection>
 
       <section id="skills" className="skills-section section-grid section-pad">
         <div className="section-label"><span>02 / TOOLKIT</span><span className="label-rule"/></div>
@@ -181,7 +193,7 @@ export default function Home() {
           <p className="section-kicker">A PRACTICAL STACK, BUILT IN PRODUCTION</p>
           <h2>Tools for the <span className="serif-italic">whole build.</span></h2>
           <p className="section-description">From shaping an interface to shipping reliable backend services, these are the technologies I use to turn ideas into working products.</p>
-          <div className="skills-grid">{skillGroups.map((group, index) => <article className={`skill-group skill-group-${index + 1}`} key={group.name}><div className="skill-group-heading"><span>0{index + 1}</span><h3>{group.name}</h3></div><div className="skill-tags">{group.skills.map((skill) => { const logo = skillLogos[skill]; return <span className="skill-tag" key={skill}><span className="skill-logo" aria-hidden="true"><span>{logo?.mark ?? skill.slice(0, 2).toUpperCase()}</span>{logo?.src ? <img className="skill-logo-image skill-logo-aws" src={logo.src} alt=""/> : logo?.slug ? <img className="skill-logo-image" src={`https://cdn.simpleicons.org/${logo.slug}/${logo.color}`} alt="" loading="lazy"/> : null}</span><span className="skill-tag-name">{skill}</span></span>; })}</div></article>)}</div>
+          <SkillTerminal groups={skillGroups} logos={skillLogos}/>
         </div>
       </section>
 
