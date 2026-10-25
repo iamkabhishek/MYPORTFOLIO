@@ -368,8 +368,8 @@ body{font-size:17px}
 @keyframes chip-wiggle{0%,100%{translate:0 0}25%{translate:-2px -1px}50%{translate:2px 1px}75%{translate:-1px 0}}
 @media(prefers-reduced-motion:reduce){.button svg,.text-link svg,.project-actions a svg,.social-links a svg,.floating-chip,.project-card,.skill-logo,.experience-mark svg,.portrait-card,.portrait-card figcaption,.main-nav a:after{animation:none!important;transition:none!important}.skill-tag:hover .skill-logo,.skill-tag:focus-visible .skill-logo,.experience-card:hover .experience-mark svg,.portrait-card:hover{transform:none}}
 
-.hero-sanskrit{display:flex;align-items:center;gap:12px;flex-wrap:wrap;width:fit-content;margin:0 0 16px;color:#c98255;font-family:'Noto Serif Devanagari',serif;font-size:clamp(20px,2.2vw,25px);font-weight:700;line-height:1.7;letter-spacing:0;text-shadow:0 1px 0 #fff7e7,0 2px 0 #edba8a,0 3px 0 #d39365,0 4px 0 #ad6949,0 7px 9px rgba(87,57,38,.16);transform:perspective(320px) rotateX(8deg);transform-origin:left bottom}
-.hero-sanskrit-greeting{color:#d18b5d;text-shadow:0 1px 0 #fff9ed,0 2px 0 #f3ca9b,0 3px 0 #dc9c6e,0 5px 0 #bb7953,0 7px 9px rgba(87,57,38,.14)}
+.hero-sanskrit{display:flex;align-items:center;gap:12px;flex-wrap:wrap;width:fit-content;margin:0 0 16px;color:#46574a;font-family:'Noto Serif Devanagari',serif;font-size:clamp(20px,2.2vw,25px);font-weight:600;line-height:1.7;letter-spacing:0;text-shadow:0 2px 10px rgba(36,35,31,.07);transform:none;transform-origin:center}
+.hero-sanskrit-greeting{color:#a66e4e;text-shadow:none}
 @media(max-width:650px){.hero-sanskrit{gap:9px;font-size:clamp(17px,4.5vw,21px)}}
 @media(prefers-reduced-motion:reduce){.hero-sanskrit{transform:none}}
 .hero-sanskrit{grid-column:1/-1;justify-self:center;align-self:start;justify-content:center;margin:0 auto 26px;text-align:center;transform-origin:center bottom}
@@ -582,3 +582,39 @@ body{font-size:17px}
 .experience-story-details li:hover{transform:translateX(4px);background:rgba(229,238,230,.75);color:#263a32}
 .experience-story-details li:hover:before{transform:scale(1.55);box-shadow:0 0 0 3px rgba(201,107,89,.13)}
 @media(prefers-reduced-motion:reduce){.experience-story-details li,.experience-story-details li:before{transition:none}.experience-story-details li:hover{transform:none}}
+
+/* Project cards: clearer hierarchy and shorter, usable live-site previews. */
+.project-list{align-items:stretch;gap:16px}
+.project-card{padding:17px;background:rgba(255,252,246,.8);border-color:rgba(36,35,31,.16);border-radius:8px 12px 9px 13px;box-shadow:0 5px 16px rgba(36,35,31,.045)}
+.project-card:hover{transform:translateY(-3px);border-color:rgba(73,105,87,.38);box-shadow:0 11px 24px rgba(36,35,31,.09)}
+.project-top{min-height:25px}
+.project-number{width:25px;height:25px;background:#e5eee6;color:#365541;font-size:9px}
+.project-kind{color:#5d625a;font-size:9px;letter-spacing:.08em}
+.project-card h3{margin:17px 0 7px;color:#263a32;font-size:24px;line-height:1.1}
+.project-card>p:not(.truth-note){min-height:0;margin-bottom:10px;color:#45473f;font-size:13px;line-height:1.65}
+.project-card .tag-row{gap:6px;margin:10px 0 12px}
+.project-card .tag{padding:5px 7px;border-color:rgba(73,105,87,.2);background:rgba(229,238,230,.45);color:#35483b;font-size:9px}
+.project-details{display:grid;gap:6px;padding-top:11px}
+.project-details li{font-size:11px;line-height:1.55;color:#4e5149}
+.project-actions{margin-top:auto;padding-top:12px}
+.project-actions a,.project-link-pending{font-size:10px}
+.project-art-01,.project-art-02{height:270px;margin-top:12px;border:1px solid rgba(36,35,31,.12);border-radius:7px 11px 8px 12px;background:#f0ece4}
+.project-art-02:has(iframe):after{display:none}
+.project-art-01 iframe,.project-art-02 iframe{width:100%;height:100%;transform:none;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .6s ease}
+.project-card:hover .project-art-01 iframe,.project-card:hover .project-art-02 iframe{transform:scale(1.018);filter:saturate(1.04)}
+@media(max-width:700px){.project-art-01,.project-art-02{height:235px}}
+@media(max-width:480px){.project-card{padding:14px}.project-art-01,.project-art-02{height:215px}.project-card h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.project-card,.project-art-01 iframe,.project-art-02 iframe{transition:none}.project-card:hover .project-art-01 iframe,.project-card:hover .project-art-02 iframe{transform:none;filter:none}}
+
+/* Keep the original ak. lettering and soften the badge edges for the paper theme. */
+.nav-mark{width:34px;height:34px;border:1px solid rgba(38,58,50,.16);border-radius:11px 15px 10px 14px;background:linear-gradient(145deg,#eaf0e6,#dfe9de);color:#294638;box-shadow:inset 0 0 0 1px rgba(255,252,246,.42),0 2px 8px rgba(73,105,87,.08);font-family:var(--serif);font-size:18px;font-weight:400;letter-spacing:-.03em;transform:rotate(-3deg);transition:transform .24s ease,background .24s ease,border-color .24s ease,box-shadow .24s ease}
+.topbar .wordmark:hover .nav-mark{transform:rotate(0) translateY(-1px);background:linear-gradient(145deg,#edf3e9,#dce9de);border-color:rgba(38,58,50,.24);box-shadow:inset 0 0 0 1px rgba(255,252,246,.5),0 3px 10px rgba(73,105,87,.12)}
+@media(max-width:650px){.topbar .nav-mark{width:30px;height:30px;font-size:16px}}
+@media(prefers-reduced-motion:reduce){.nav-mark{transition:none}.topbar .wordmark:hover .nav-mark{transform:none}}
+
+/* Selective inline accents echo the colorful emphasis in the reference. */
+.text-accent-sage{color:#496957;font-weight:500}
+.text-accent-blue{color:#526b8c;font-weight:500}
+.text-accent-clay{color:#a66e4e;font-weight:500}
+.hero h1 .text-accent-sage{color:#496957}
+.hero h1 .text-accent-clay{color:#a66e4e}

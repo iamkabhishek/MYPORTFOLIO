@@ -127,7 +127,7 @@ export default function Home() {
   return (
     <main id="main" className="site-shell">
       <header className="topbar">
-        <a className="wordmark" href="#home" aria-label="Abhishek home"><span className="wordmark-mark">ak.</span><span>abhishek kumar</span></a>
+        <a className="wordmark" href="#home" aria-label="Abhishek home"><span className="wordmark-mark nav-mark" aria-hidden="true">ak.</span><span>abhishek kumar</span></a>
         <nav aria-label="Main navigation" className="main-nav">
           <a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
         </nav>
@@ -138,8 +138,8 @@ export default function Home() {
         <p className="hero-sanskrit" lang="sa"><span className="hero-sanskrit-greeting">नमस्कारः</span><span>अहं अभिषेकः अस्मि</span></p>
         <div className="hero-copy">
           <p className="eyebrow"><span className="eyebrow-line"/> BACKEND DEVELOPER · MERN STACK ENGINEER</p>
-          <h1>Building the<br/><span className="serif-italic">logic</span> behind<br/>the experience<span className="coral-dot">.</span></h1>
-          <p className="hero-intro">I’m Abhishek Kumar ” a backend developer building APIs, cloud-native applications, and dependable product experiences with Node.js, TypeScript, and the MERN stack.</p>
+          <h1>Building the<br/><span className="serif-italic text-accent-sage">logic</span> behind<br/>the <span className="text-accent-clay">experience</span><span className="coral-dot">.</span></h1>
+          <p className="hero-intro">I’m Abhishek Kumar — a backend developer building <span className="text-accent-sage">APIs and cloud-native applications</span>, creating <span className="text-accent-blue">dependable product experiences</span> with Node.js, TypeScript, and the MERN stack.</p>
           <div className="hero-actions"><a className="button button-dark" href="#projects">Explore my work <ArrowDownRight size={16}/></a><a className="text-link" href="#contact">Let’s talk <ArrowUpRight size={15}/></a></div>
           <div className="hero-footnote"><span className="tiny-spark">✳</span> Curious by default. Careful with the details.</div>
         </div>
@@ -156,10 +156,10 @@ export default function Home() {
 
       <section id="about" className="about-section section-grid section-pad">
         <div className="section-label"><span>01 / ABOUT</span><span className="label-rule"/></div>
-        <div className="about-content"><p className="section-kicker">THE PERSON BEHIND THE REQUESTS</p><h2>Building systems that work<br/>beyond the <span className="serif-italic">happy path.</span></h2>
-          <div className="about-prose"><p>I’m Abhishek Kumar, a Backend Developer specializing in Node.js, TypeScript, and the MERN stack, with 1+ year of production experience building REST APIs and cloud-native applications.</p>
-          <p>At FitnEarn, I worked on backend services, authentication systems, database optimization, notification pipelines, and automated deployment workflows. My focus is on building reliable systems with clean architecture, security, and measurable performance improvements.</p>
-          <p>I’ve also built projects ranging from AI-powered interview platforms to real-time cryptocurrency dashboards. I enjoy solving engineering problems and turning ideas into functional products.</p></div>
+        <div className="about-content"><p className="section-kicker">THE PERSON BEHIND THE REQUESTS</p><h2>Building systems that work<br/>beyond the <span className="serif-italic text-accent-sage">happy path.</span></h2>
+          <div className="about-prose"><p>I’m Abhishek Kumar, a Backend Developer specializing in <span className="text-accent-blue">Node.js, TypeScript, and the MERN stack</span>, with 1+ year of production experience building <span className="text-accent-sage">REST APIs and cloud-native applications.</span></p>
+          <p>At FitnEarn, I worked on backend services, <span className="text-accent-sage">authentication systems and database optimization</span>, <span className="text-accent-blue">notification pipelines</span>, and automated deployment workflows. My focus is on building reliable systems with <span className="text-accent-clay">clean architecture, security, and measurable performance.</span></p>
+          <p>I’ve also built projects ranging from <span className="text-accent-blue">AI-powered interview platforms</span> to <span className="text-accent-sage">real-time cryptocurrency dashboards.</span> I enjoy solving engineering problems and turning ideas into <span className="text-accent-clay">functional products.</span></p></div>
           
         </div>
       </section>
